@@ -1,0 +1,231 @@
+<div class="main-container card">
+    <div class="heading">
+        <h4><i>Apply Gig Employee Form</i></h4>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-10 mb-5">
+                    <!-- <small style="color: #ffff00; padding-left: -60px;">Jan adhar number.</small> -->
+                    <input type="text" formControlName="janadharNo" placeholder="Enter Jan Adhar Number"
+                        class="form-control" />
+                    <small
+                        *ngIf="registerForm.get('janadharNo')?.invalid && (registerForm.get('janadharNo')?.dirty || registerForm.get('janadharNo')?.touched)"
+                        style="color: hsl(60, 100%, 50%); margin-left: -430px;">Please enter jan adhar number</small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-5 mb-3">
+                    <!-- <small style="color: #ffff00; padding-left: 236px;">Employee name</small> -->
+                    <input type="text" placeholder="Enter Employee Name" formControlName="employeeName"
+                        class="form-control mt-4" />
+                    <small
+                        *ngIf="registerForm.get('employeeName')?.invalid && (registerForm.get('employeeName')?.dirty || registerForm.get('employeeName')?.touched)"
+                        style="color: hsl(60, 100%, 50%); padding-left: 330px;">Please enter employee name</small>
+
+                    <!-- <small style="color: #ffff00; padding-left: 190px;">Work type</small> -->
+                    <select class="form-select form-control mt-4" formControlName="gender">
+                        <option value="">Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    <small
+                        *ngIf="registerForm.get('gender')?.invalid && (registerForm.get('gender')?.dirty || registerForm.get('gender')?.touched)"
+                        style="color: hsl(60, 100%, 50%); padding-left: 300px;">Please select the gender</small>
+
+                    <!-- <small style="color: #ffff00; padding-left: 150px;">Email</small> -->
+                    <input type="text" formControlName="email" placeholder="Enter Email Id" class="form-control mt-4" />
+                    <small
+                        *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)">
+                        <small *ngIf="registerForm.get('email')?.errors?.['required']"
+                            style="color: hsl(60, 100%, 50%); padding-left: 668px; font-size: 17px;">Email is
+                            required.</small>
+                        <small *ngIf="registerForm.get('email')?.errors?.['pattern']"
+                            style="color: hsl(60, 100%, 50%); padding-left: 720px; font-size: 17px;">
+                            Please enter valid email.
+                        </small>
+                    </small>
+
+                    <!-- <small style="color: #ffff00; padding-left: 190px;">Adhar No</small> -->
+                    <input type="text" formControlName="adharNo" placeholder="Enter Adhar Number"
+                        class="form-control mt-4" />
+                    <small
+                        *ngIf="registerForm.get('adharNo')?.invalid && (registerForm.get('adharNo')?.dirty || registerForm.get('adharNo')?.touched)"
+                        style="color: hsl(60, 100%, 50%); padding-left: 330px;">Please enter adhar number</small>
+
+                    <!-- <small style="color: #ffff00; padding-left: 240px;">Pan card number</small> -->
+                    <input type="text" formControlName="panNo" placeholder="Enter Pan Card Name"
+                        class="form-control mt-4" />
+                    <small
+                        *ngIf="registerForm.get('panNo')?.invalid && (registerForm.get('panNo')?.dirty || registerForm.get('panNo')?.touched)"
+                        style="color: hsl(60, 100%, 50%); padding-left: 340px;">Please enter pan card number</small>
+
+                </div>
+
+                <div class="col-5 mb-4">
+                    <!-- <small style="color: #ffff00; padding-left: 147px;">Age</small> -->
+                    <input type="text" placeholder="Enter Age" formControlName="age" class="form-control mt-4" />
+                    <small
+                        *ngIf="registerForm.get('age')?.invalid && (registerForm.get('age')?.dirty || registerForm.get('age')?.touched)"
+                        style="color: hsl(60, 100%, 50%); padding-left: 340px;">Please enter employee age</small>
+
+                    <!-- <small style="color: #ffff00; padding-left: 230px;">Phone number</small> -->
+                    <input type="text" placeholder="Enter Phone Number" formControlName="phoneNo"
+                        class="form-control mt-4" />
+                    <small
+                        *ngIf="registerForm.get('phoneNo')?.invalid && (registerForm.get('phoneNo')?.dirty || registerForm.get('phoneNo')?.touched)"
+                        style="color: hsl(60, 100%, 50%); padding-left: 340px;">Please enter phone number</small>
+
+                    <!-- <small style="color: #ffff00; padding-left: 170px;">District</small> -->
+                    <input type="text" placeholder="Enter District Name" formControlName="district"
+                        class="form-control mt-4" />
+                    <small
+                        *ngIf="registerForm.get('district')?.invalid && (registerForm.get('district')?.dirty || registerForm.get('district')?.touched)"
+                        style="color: hsl(60, 100%, 50%); padding-left: 340px;">Please enter district name</small>
+
+                    <div style="margin-top: 20px;">
+                        <div class="radio-container1" style="display: flex;">
+                            <div class="radio-container"><u> Do you have pan card ?</u></div>
+                            <div class="form-check">
+                                <input class="form-check-input" formControlName="pancard" value="Yes" type="radio">
+                                <label class="form-check-label" style="color: #ffff00;">
+                                    Yes
+                                </label>
+                            </div>
+                            &nbsp;
+                            <div class="form-check">
+                                <input class="form-check-input" formControlName="pancard" value="No" type="radio"
+                                    [checked]="true">
+                                <label class="form-check-label" style="color: #ffff00;">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="company-name">
+                    <h4 style="color: #ffff00;"><i>Company Information</i></h4>
+                </div>
+                <div class="col-5 mb-4">
+                    <small style="color: #ffff00; padding-left: 190px;">Work type</small>
+                    <select class="form-select form-control" formControlName="workType" name="" id="">
+                        <option value="">Work Type</option>
+                        <option value="type-one">Type One</option>
+                        <option value="type two">Type Two</option>
+                        <option value="type-three">Type Three</option>
+                        <option value="type four">Type Four</option>
+                    </select>
+                    <small
+                        *ngIf="registerForm.get('workType')?.invalid && (registerForm.get('workType')?.dirty || registerForm.get('workType')?.touched)"
+                        style="color: hsl(60, 100%, 50%); padding-left: 300px;">Please enter work type</small>
+                </div>
+
+
+                <div class="col-5 mb-4">
+                    <small style="color: #ffff00; padding-left: 210px;">Employee Id</small>
+                    <input type="text" placeholder="Enter Employee ID" formControlName="empId" class="form-control" />
+                    <small
+                        *ngIf="registerForm.get('empId')?.invalid && (registerForm.get('empId')?.dirty || registerForm.get('empId')?.touched)"
+                        style="color: hsl(60, 100%, 50%); padding-left: 300px;">Please enter employee id</small>
+                </div>
+
+                <div class="check-container">
+                    <!-- <small style="color: #ffff00; padding-left: 170px;">Company name</small> -->
+                    <div class="col-3 mb-4 form-check" *ngFor="let company of companyName; index as i">
+                        <input class="form-check-input" (change)="onChange($event)" [value]="company" type="checkbox"
+                            name="companyname">
+                        <div class="label-container">
+                            <label class="form-check-label" style="color: #ffff00;">
+                                {{company}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="bank-info">
+                    <h4 style="color: #ffff00;"><i>Bank Information</i></h4>
+                </div>
+                <div class="col-5">
+                    <!-- <small style="color: #ffff00; padding-left: 280px;">Account holder name</small> -->
+                    <input type="text" formControlName="accountHolderName" placeholder="Enter Account Holder Name"
+                        class="form-control mt-4" />
+                    <small
+                        *ngIf="registerForm.get('accountHolderName')?.invalid && (registerForm.get('accountHolderName')?.dirty || registerForm.get('accountHolderName')?.touched)"
+                        style="color: hsl(60, 100%, 50%); padding-left: 370px;">Please enter account holder name</small>
+
+                    <!-- <small style="color: #ffff00; padding-left: 210px;padding-top:100px; margin-top: 150px;">Branch name</small> -->
+                    <input type="text" formControlName="branchName" placeholder="Enter Branch Name"
+                        class="form-control mt-4" />
+                    <small
+                        *ngIf="registerForm.get('branchName')?.invalid && (registerForm.get('branchName')?.dirty || registerForm.get('branchName')?.touched)"
+                        style="color: hsl(60, 100%, 50%); padding-left: 310px;">Please enter branch name</small>
+
+                    <!-- <small style="color: #ffff00; padding-left: 210px;">IFSC number</small> -->
+                    <input type="text" formControlName="ifscNo" placeholder="Enter IFSC Number"
+                        class="form-control mt-4" />
+                    <small
+                        *ngIf="registerForm.get('ifscNo')?.invalid && (registerForm.get('ifscNo')?.dirty || registerForm.get('ifscNo')?.touched)"
+                        style="color: hsl(60, 100%, 50%); padding-left: 310px;">Please enter IFSC number</small>
+                </div>
+                <div class="col-5 mb-4">
+                    <!-- <small style="color: #ffff00; padding-left: 200px;">Bank name</small> -->
+                    <input type="text" formControlName="bankName" placeholder="Enter Bank Name"
+                        class="form-control mt-4" />
+                    <small
+                        *ngIf="registerForm.get('bankName')?.invalid && (registerForm.get('bankName')?.dirty || registerForm.get('bankName')?.touched)"
+                        style="color: hsl(60, 100%, 50%); padding-left: 295px;">Please enter bank name</small>
+
+                    <!-- <small style="color: #ffff00; padding-left: 240px;">Account number</small> -->
+                    <input type="text" formControlName="accountNo" placeholder="Enter Account Number"
+                        class="form-control mt-4" />
+                    <small
+                        *ngIf="registerForm.get('accountNo')?.invalid && (registerForm.get('accountNo')?.dirty || registerForm.get('accountNo')?.touched)"
+                        style="color: hsl(60, 100%, 50%); padding-left: 340px;">Please enter account number</small>
+                </div>
+            </div>
+
+            <div class="file-container">
+
+                <div class="row mt-4">
+                    <div class="file-info">
+                        <h4 style="color: #ffff00;"><i>Link Document</i></h4>
+                    </div>
+                    <div class=" col-4 mb-4">
+                        <small style="color: #ffff00; padding-left: 170px;">Adhar</small>
+                        <input type="file" (change)="getAdharFile($event)" class="form-control mt-1" />
+
+                        <small style="color: #ffff00; padding-left: 256px;">Pan-card/form-60</small>
+                        <input type="file" (change)="getPanFile($event)" class="form-control mt-1" />
+                    </div>
+                    <div class="col-4 mb-4">
+                        <small style="color: #ffff00; padding-left: 210px;">Company Id</small>
+                        <input type="file" (change)="getCompanyFile($event)" class="form-control mt-1" />
+
+                        <small style="color: #ffff00; padding-left: 340px;">Bank statement of last month</small>
+                        <input type="file" (change)="getBankFile($event)" class="form-control mt-1" />
+                    </div>
+                    <div class="col-4 mb-4">
+                        <small style="color: #ffff00; padding-left: 398px;">Work agreement of last three month</small>
+                        <input type="file" (change)="getAgreementFile($event)" class="form-control mt-1" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="terms-container">
+                <div class="form-check">
+                    <input type="checkbox" formControlName="accept" />
+                    <label>I accept the terms and condition</label>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-warning me-2" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
