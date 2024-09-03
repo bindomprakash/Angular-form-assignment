@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -14,8 +14,12 @@ export class EmployeeDetailsComponent {
 
   constructor(private fb: FormBuilder) { }
 
+  @ViewChild('emp') emp!: ElementRef; 
+
   ngOnInit() {
-    this.createforms()
+    this.createforms();
+
+    
   }
 
   createforms() {
@@ -91,5 +95,7 @@ export class EmployeeDetailsComponent {
     const file = event.target.files[0];
     this.storeFile.push(file);
   }
+
+  
 
 }

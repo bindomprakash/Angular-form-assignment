@@ -5,11 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EmpDirective } from './emp.directive';
+import { ChildComponent } from './child/child.component';
+import { ParentComponent } from './parent/parent.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    EmpDirective,
+    ChildComponent,
+    ParentComponent
   ],
   imports: [
     BrowserModule,
