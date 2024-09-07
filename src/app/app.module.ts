@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { EmpDirective } from './emp.directive';
 import { ChildComponent } from './child/child.component';
 import { ParentComponent } from './parent/parent.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ParentComponent } from './parent/parent.component';
     EmployeeDetailsComponent,
     EmpDirective,
     ChildComponent,
-    ParentComponent
+    ParentComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
